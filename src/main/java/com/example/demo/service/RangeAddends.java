@@ -13,7 +13,7 @@ final class RangeAddends {
     private LinkedList<Integer> addends;
     private int sum;
 
-    public RangeAddends(LinkedList<Integer> addends, int sum) {
+    public RangeAddends(final LinkedList<Integer> addends, final int sum) {
         this.addends = addends;
         this.sum = sum;
     }
@@ -32,7 +32,11 @@ final class RangeAddends {
         return this.addends;
     }
 
-    private void generateAddends(int sum, LinkedList<Integer> numbers, LinkedList<Integer> accumulator, Set<Set<Integer>> addends) {
+    private void generateAddends(
+        final int sum,
+        final LinkedList<Integer> numbers,
+        final LinkedList<Integer> accumulator,
+        final Set<Set<Integer>> addends) {
 
         int s = 0;
         for (int x: accumulator) {

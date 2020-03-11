@@ -28,9 +28,9 @@ public class DemoController {
 
     @RequestMapping("/submitForm")
     public String submitForm(
-        @Valid @ModelAttribute Form form,
-        BindingResult bindingResult,
-        Model model) {
+        final @Valid @ModelAttribute Form form,
+        final BindingResult bindingResult,
+        final Model model) {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("form", form);

@@ -29,12 +29,12 @@ public class DemoService {
 
     private HistoryRepository historyRepository;
 
-    public DemoService(HistoryRepository historyRepository) {
+    public DemoService(final HistoryRepository historyRepository) {
         this.historyRepository = historyRepository;
     }
 
     @Auditable
-    public String calculateSubsetsFromForm(Form form) {
+    public String calculateSubsetsFromForm(final Form form) {
 
         History history = this.historyRepository.findFirstByTotalAndList(form.getTotal(), form.getList());
 
@@ -65,7 +65,7 @@ public class DemoService {
         return result;
     }
 
-    private String serializeNestedSet(Set<Set<Integer>> subsets) {
+    private String serializeNestedSet(final Set<Set<Integer>> subsets) {
         StringBuilder builder = new StringBuilder();
 
         subsets.forEach(
