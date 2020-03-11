@@ -68,7 +68,7 @@
             // I couldn't take the extra time to do something cool with jQuery,
             // but I have plenty of jQuery code I've contributed as a contractor
             // that I'm sure the owners would be cool with me showing you.
-            console.log("Results: " + $('#results').text().trim);
+            console.log("Results: " + $('#results').text().trim());
         </script>
     </body>
 </html>
