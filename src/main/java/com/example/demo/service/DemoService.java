@@ -15,7 +15,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 /* 
-* Ideally I would want to further encapsulate the data logic in this class
+* Ideally I would want to further encapsulate the data logic in this class, such as the History entity,
 * and make the service layer more agnostic to the particular source of the data it uses.
 * I'm a big fan of making beans wired by interfaces and determining the implementation based on properties,
 * which keeps from having to refactor this class if we start getting our "history" data from another service/API
@@ -43,9 +43,15 @@ public class DemoService {
             return history.getResult();
         }
 
+        // given the time, I would rather find a way for Spring to send these to the back end as a list already
+        // and also account for the now unregulated length of this list
         Set<Integer> addendSet = Arrays.asList(
-            form.getList().split(",")).stream().map(Integer::valueOf).collect(Collectors.toSet()
-        );
+            form.getList()
+            .split(",")
+        ).stream()
+            .map(String::trim)
+            .map(Integer::valueOf)
+            .collect(Collectors.toSet());
 
         int sum = Integer.valueOf(form.getTotal());
 

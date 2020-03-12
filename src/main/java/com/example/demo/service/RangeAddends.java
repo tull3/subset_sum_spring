@@ -9,7 +9,7 @@ import java.util.Set;
 * Plus I like immutability, so I tend to avoid setters, even in POJO's, when possible.
 */
 
-final class RangeAddends {
+public class RangeAddends {
     private LinkedList<Integer> addends;
     private int sum;
 
@@ -23,6 +23,7 @@ final class RangeAddends {
 
         // this is done here rather than setting "set" as an instance variable because lazily calculating
         // data like this is usually good practice to keep memory usage down
+        // especially if the data set is potentially large, like this one
         this.generateAddends(this.sum, this.addends, new LinkedList<>(), set);
         
         return set;
